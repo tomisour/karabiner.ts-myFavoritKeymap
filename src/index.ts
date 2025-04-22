@@ -51,6 +51,8 @@ writeToProfile("Default profile", [
         ["i", "up_arrow"],
         ["u", "page_up"],
         ["o", "page_down"],
+        ["h", "home"],
+        ["n", "end"],
       ] as const
     ).flatMap(([fromKey, toKey]) => {
       return [

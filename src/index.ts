@@ -84,4 +84,26 @@ writeToProfile("Default profile", [
     map("caps_lock").to("`"),
     map("caps_lock", "shift").to("grave_accent_and_tilde", "shift"),
   ]),
+
+  layer("escape", "mouse cursor lau=yer").manipulators([
+    // ijklでマウスカーソル移動
+    map("i").toMouseKey({
+      y: -10,
+      speed_multiplier: 100,
+    }),
+    map("j").toMouseKey({
+      x: -10,
+      speed_multiplier: 100,
+    }),
+    map("k").toMouseKey({
+      y: 10,
+      speed_multiplier: 100,
+    }),
+    map("l").toMouseKey({
+      x: 10,
+      speed_multiplier: 100,
+    }),
+    map("u").toPointingButton("button1"),
+    map("o").toPointingButton("button2"),
+  ]),
 ]);

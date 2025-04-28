@@ -77,6 +77,10 @@ writeToProfile("Default profile", [
     map("delete_or_backspace").to("delete_or_backspace", "fn"),
     map("return_or_enter").to("return_or_enter", "command"),
     map("tab").to("tab", "option"),
+
+    map(";").to("return_or_enter"),
+    map(",").to("delete_or_backspace"),
+    map(".").to("delete_or_backspace", "fn"),
   ]),
 
   // caps_lockをバッククォートにへんかん

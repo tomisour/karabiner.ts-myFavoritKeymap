@@ -53,6 +53,7 @@ writeToProfile("Default profile", [
         ["o", "page_down"],
         ["h", "home"],
         ["n", "end"],
+        ["f", "return_or_enter"],
       ] as const
     ).flatMap(([fromKey, toKey]) => {
       return [
@@ -78,7 +79,6 @@ writeToProfile("Default profile", [
     map("return_or_enter").to("return_or_enter", "command"),
     map("tab").to("tab", "option"),
 
-    map("f").to("return_or_enter"),
     map("v").to("delete_or_backspace"),
     map("c").to("delete_or_backspace", "fn"),
   ]),

@@ -7,7 +7,7 @@ import {
   ToKeyParam,
   writeToProfile,
 } from "karabiner.ts";
-const modKeys = ["shift", "control", "option", "command"] as const;
+const modKeys = ["shift", "control", "option", "command", "fn"] as const;
 type ModKey = (typeof modKeys)[number];
 const generateModifierMapping = (
   fromKeyParam: FromKeyParam,
@@ -53,7 +53,8 @@ writeToProfile("Default profile", [
         ["o", "page_down"],
         ["h", "home"],
         ["n", "end"],
-        ["f", "return_or_enter"],
+        ["g", "return_or_enter"],
+        ["t", "delete_or_backspace"],
       ] as const
     ).flatMap(([fromKey, toKey]) => {
       return [
@@ -61,26 +62,22 @@ writeToProfile("Default profile", [
         ...generateModifierMapping(fromKey, toKey, modKeys),
       ];
     }),
-    map("b").to("japanese_kana"),
-    map("g").to("japanese_eisuu"),
 
-    map("a").to(1),
-    map("s").to(2),
-    map("d").to(3),
-    map("q").to(4),
-    map("w").to(5),
-    map("e").to(6),
-    map("1").to(7),
-    map("2").to(8),
-    map("3").to(9),
-    map("x").to(0),
+    map("x").to(1),
+    map("c").to(2),
+    map("v").to(3),
+    map("s").to(4),
+    map("d").to(5),
+    map("f").to(6),
+    map("w").to(7),
+    map("e").to(8),
+    map("r").to(9),
+    map("z").to(0),
 
-    map("delete_or_backspace").to("delete_or_backspace", "fn"),
     map("return_or_enter").to("return_or_enter", "command"),
     map("tab").to("tab", "option"),
 
-    map("v").to("delete_or_backspace"),
-    map("c").to("delete_or_backspace", "fn"),
+    map("b").to("spacebar", "control"),
   ]),
 
   // caps_lockをバッククォートにへんかん

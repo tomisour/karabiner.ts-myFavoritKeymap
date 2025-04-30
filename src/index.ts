@@ -55,7 +55,7 @@ writeToProfile("Default profile", [
         ["h", "home"],
         ["n", "end"],
         ["g", "return_or_enter"],
-        ["t", "delete_or_backspace"],
+        [";", "delete_or_backspace"],
         ["1", "f1"],
         ["2", "f2"],
         ["3", "f3"],

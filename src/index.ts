@@ -54,8 +54,10 @@ writeToProfile("Default profile", [
         ["o", "page_down"],
         ["h", "home"],
         ["n", "end"],
-        ["g", "return_or_enter"],
-        [";", "delete_or_backspace"],
+        ["p", "delete_or_backspace"],
+        [";", "return_or_enter"],
+        ["b", "japanese_kana"],
+        ["g", "japanese_eisuu"],
         ["1", "f1"],
         ["2", "f2"],
         ["3", "f3"],
@@ -68,6 +70,16 @@ writeToProfile("Default profile", [
         ["0", "f10"],
         ["-", "f11"],
         ["=", "f12"],
+        ["x", 1],
+        ["c", 2],
+        ["v", 3],
+        ["s", 4],
+        ["d", 5],
+        ["f", 6],
+        ["w", 7],
+        ["e", 8],
+        ["r", 9],
+        ["z", 0],
       ] as const
     ).flatMap(([fromKey, toKey]) => {
       return [
@@ -76,36 +88,7 @@ writeToProfile("Default profile", [
       ];
     }),
 
-    map("x").to(1),
-    map("c").to(2),
-    map("v").to(3),
-    map("s").to(4),
-    map("d").to(5),
-    map("f").to(6),
-    map("w").to(7),
-    map("e").to(8),
-    map("r").to(9),
-    map("z").to(0),
-
-    map("return_or_enter").to("return_or_enter", "command"),
     map("tab").to("tab", "option"),
-
-    map("b")
-      .to("japanese_eisuu")
-      .condition({
-        type: "variable_if",
-        name: "keyboard_type",
-        value: "kana",
-      })
-      .toAfterKeyUp(toSetVar("keyboard_type", "eisuu")),
-    map("b")
-      .to("japanese_kana")
-      .condition({
-        type: "variable_unless",
-        name: "keyboard_type",
-        value: "kana",
-      })
-      .toAfterKeyUp(toSetVar("keyboard_type", "kana")),
   ]),
 
   // caps_lockをバッククォートにへんかん

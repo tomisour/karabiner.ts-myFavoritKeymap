@@ -55,6 +55,18 @@ writeToProfile("Default profile", [
         ["n", "end"],
         ["g", "return_or_enter"],
         ["t", "delete_or_backspace"],
+        ["1", "f1"],
+        ["2", "f2"],
+        ["3", "f3"],
+        ["4", "f4"],
+        ["5", "f5"],
+        ["6", "f6"],
+        ["7", "f7"],
+        ["8", "f8"],
+        ["9", "f9"],
+        ["0", "f10"],
+        ["-", "f11"],
+        ["=", "f12"],
       ] as const
     ).flatMap(([fromKey, toKey]) => {
       return [

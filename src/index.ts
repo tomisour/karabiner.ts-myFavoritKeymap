@@ -5,6 +5,7 @@ import {
   rule,
   toKey,
   ToKeyParam,
+  toSetVar,
   writeToProfile,
 } from "karabiner.ts";
 const modKeys = ["shift", "control", "option", "command", "fn"] as const;
@@ -89,7 +90,22 @@ writeToProfile("Default profile", [
     map("return_or_enter").to("return_or_enter", "command"),
     map("tab").to("tab", "option"),
 
-    map("b").to("spacebar", "control"),
+    map("b")
+      .to("japanese_eisuu")
+      .condition({
+        type: "variable_if",
+        name: "keyboard_type",
+        value: "kana",
+      })
+      .toAfterKeyUp(toSetVar("keyboard_type", "eisuu")),
+    map("b")
+      .to("japanese_kana")
+      .condition({
+        type: "variable_unless",
+        name: "keyboard_type",
+        value: "kana",
+      })
+      .toAfterKeyUp(toSetVar("keyboard_type", "kana")),
   ]),
 
   // caps_lockをバッククォートにへんかん
